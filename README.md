@@ -31,4 +31,4 @@ GitHub Pagesで公開することを想定しています。
 
 ## デプロイ先
 
-GitHub Pages (https://github.com/u1-mas/u1f991-blog)
+公開URL: https://u1-mas.github.io/u1f991-blog
