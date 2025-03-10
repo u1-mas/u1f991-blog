@@ -1,8 +1,34 @@
-# React + TypeScript + Vite
+# u1f991-blog
 
-This template provides a minimal setup to get React working in Vite with HMR.
+このプロジェクトは、Vite + React + TypeScriptで構築された個人ブログです。
+GitHub Pagesで公開することを想定しています。
 
-Currently, two official plugins are available:
+## プロジェクトの目的
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 個人的な考えや技術的な情報を発信する
+- ユーザーの技術力向上のため
+
+## 技術スタック
+
+- Vite
+- React
+- TypeScript
+- Biome
+
+## 開発環境
+
+- TypeScriptで記述されたReactコンポーネント
+- Viteによる高速な開発環境
+- Biomeによるコードチェック
+
+## スクリプト
+
+- `dev`: 開発サーバーを起動
+- `build`: ビルド
+- `check`: コードチェック
+- `preview`: ビルド結果をプレビュー
+- `prepare`: huskyをインストール
+
+## デプロイ先
+
+GitHub Pages (https://github.com/u1-mas/u1f991-blog)
