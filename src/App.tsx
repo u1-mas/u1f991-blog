@@ -3,9 +3,12 @@ import viteLogo from "/vite.svg"
 import reactLogo from "./assets/react.svg"
 import "./App.css"
 import { ReactComponent as Sample } from "../assets/contents/sample.md"
+import { attributes } from "../assets/contents/sample.md"
 
 function App() {
     const [count, setCount] = useState(0)
+
+    console.log(attributes)
 
     return (
         <>
