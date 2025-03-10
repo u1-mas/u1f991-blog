@@ -2,6 +2,7 @@ import { useState } from "react"
 import viteLogo from "/vite.svg"
 import reactLogo from "./assets/react.svg"
 import "./App.css"
+import { ReactComponent as Sample } from "../assets/contents/sample.md"
 
 function App() {
     const [count, setCount] = useState(0)
@@ -35,6 +36,7 @@ function App() {
             <p className="read-the-docs">
                 Click on the Vite and React logos to learn more
             </p>
+            <Sample />
         </>
     )
 }
