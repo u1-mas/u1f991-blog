@@ -2,8 +2,8 @@ import { useState } from "react"
 import viteLogo from "/vite.svg"
 import reactLogo from "./assets/react.svg"
 import "./App.css"
-import { ReactComponent as Sample } from "../assets/contents/sample.md"
-import { attributes } from "../assets/contents/sample.md"
+import { ReactComponent as Sample } from "./contents/sample.md"
+import { attributes } from "./contents/sample.md"
 
 function App() {
     const [count, setCount] = useState(0)
