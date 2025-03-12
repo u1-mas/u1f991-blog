@@ -1,46 +1,30 @@
-import { useState } from "react"
-import viteLogo from "/vite.svg"
-import reactLogo from "./assets/react.svg"
+import { useEffect, useState } from "react"
 import "./App.css"
-import { ReactComponent as Sample } from "./contents/sample.md"
-import { attributes } from "./contents/sample.md"
+import { loadContent } from "./loadContent"
+import type { BlogPost } from "./types/BlogPost"
 
 function App() {
-    const [count, setCount] = useState(0)
+    const [contents, setContents] = useState<Record<string, BlogPost> | null>(
+        null,
+    )
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        const rawContents = loadContent()
+        setContents(rawContents)
+        setLoading(false)
+    }, [])
 
-    console.log(attributes)
-
-    return (
-        <>
-            <div>
-                <a href="https://vite.dev" target="_blank" rel="noreferrer">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank" rel="noreferrer">
-                    <img
-                        src={reactLogo}
-                        className="logo react"
-                        alt="React logo"
-                    />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button
-                    type="button"
-                    onClick={() => setCount((count) => count + 1)}
-                >
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
-            <Sample />
-        </>
+    return loading ? (
+        <div>Loading...</div>
+    ) : (
+        <div>
+            loaded!
+            {contents &&
+                Object.entries(contents).map(([key, { attributes }]) => {
+                    // console.log(key, value)
+                    return <div key={key}>{attributes?.title}</div>
+                })}
+        </div>
     )
 }
 
