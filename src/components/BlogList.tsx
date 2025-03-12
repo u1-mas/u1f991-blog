@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom"
 import Masonry from "react-masonry-css"
+import { useNavigate } from "react-router-dom"
 import type { BlogPost } from "../types/BlogPost"
 
 interface BlogListProps {
@@ -17,7 +17,7 @@ export function BlogList({ contents }: BlogListProps) {
                 1280: 4,
                 1024: 3,
                 768: 2,
-                640: 1
+                640: 1,
             }}
             className="masonry-grid"
             columnClassName="masonry-grid_column"

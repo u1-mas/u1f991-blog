@@ -19,8 +19,8 @@ export function Navigation() {
             <ul className="flex gap-8 list-none p-0 m-0">
                 {navItems.map((item) => (
                     <li key={item.path}>
-                        <Link 
-                            to={item.path} 
+                        <Link
+                            to={item.path}
                             className="text-gray-700 dark:text-gray-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                         >
                             {item.label}
