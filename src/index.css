@@ -10,7 +10,15 @@
 /* ... 既存のスタイル ... */
 
 .blog-card {
-    @apply w-full p-4 mb-4 text-left bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200;
+    @apply w-full p-4 text-left bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200;
+}
+
+.masonry-grid {
+    @apply flex gap-4 w-auto;
+}
+
+.masonry-grid_column {
+    @apply gap-4;
 }
 
 .blog-card-content {
