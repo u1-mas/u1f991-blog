@@ -7,10 +7,15 @@
     --date-text-color: #666;
 }
 
+body {
+    @apply bg-gray-200;
+}
+
 /* ... 既存のスタイル ... */
 
 .blog-card {
-    @apply w-full p-4 text-left bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 mt-3 border-1;
+    @apply w-full p-4 text-left bg-white rounded-lg mt-3;
+    border: 1px solid #e5e7eb;
 }
 
 .masonry-grid {
@@ -43,6 +48,44 @@
 
 .blog-card-date {
     @apply block;
+}
+
+/* 記事詳細ページのスタイリング */
+.article-container {
+    @apply max-w-4xl mx-auto px-4 py-8;
+}
+
+.article-paper {
+    @apply bg-white rounded-lg p-8;
+    border: 1px solid #e5e7eb;
+}
+
+.article-header {
+    @apply border-b border-gray-200 mb-2 pb-6;
+}
+
+.article-title {
+    @apply text-4xl font-bold mb-4 leading-tight;
+}
+
+.article-description {
+    @apply text-xl text-gray-600 mb-6;
+}
+
+.article-meta {
+    @apply flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between;
+}
+
+.article-dates {
+    @apply flex flex-col gap-1 text-sm text-gray-600;
+}
+
+.article-date {
+    @apply block;
+}
+
+.article-content {
+    @apply max-w-3xl mx-auto leading-relaxed;
 }
 
 /* Markdownのスタイリング */

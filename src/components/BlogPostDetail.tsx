@@ -35,37 +35,39 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
     const updatedAt = formatDate(attributes?.updatedAt);
 
     return (
-        <article className="max-w-4xl mx-auto px-4 py-8">
-            <header className="mb-8">
-                <h1 className="text-4xl font-bold mb-4">{attributes?.title}</h1>
-                {attributes?.description && (
-                    <p className="text-xl text-gray-600 mb-4">{attributes.description}</p>
-                )}
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="blog-card-tags">
-                        {attributes?.tags?.map((tag) => (
-                            <span key={tag} className="blog-card-tag">
-                                {tag}
-                            </span>
-                        ))}
+        <div className="article-container">
+            <article className="article-paper">
+                <header className="article-header">
+                    <h1 className="article-title">{attributes?.title}</h1>
+                    {attributes?.description && (
+                        <p className="article-description">{attributes.description}</p>
+                    )}
+                    <div className="article-meta">
+                        <div className="blog-card-tags">
+                            {attributes?.tags?.map((tag) => (
+                                <span key={tag} className="blog-card-tag">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                        <div className="article-dates">
+                            {createdAt && (
+                                <time className="article-date">
+                                    作成日: {createdAt}
+                                </time>
+                            )}
+                            {updatedAt && (
+                                <time className="article-date">
+                                    更新日: {updatedAt}
+                                </time>
+                            )}
+                        </div>
                     </div>
-                    <div className="blog-card-dates">
-                        {createdAt && (
-                            <time className="blog-card-date">
-                                作成日: {createdAt}
-                            </time>
-                        )}
-                        {updatedAt && (
-                            <time className="blog-card-date">
-                                更新日: {updatedAt}
-                            </time>
-                        )}
-                    </div>
+                </header>
+                <div className="article-content markdown">
+                    <PostContent />
                 </div>
-            </header>
-            <div className="markdown mt-8">
-                <PostContent />
-            </div>
-        </article>
+            </article>
+        </div>
     );
 }
