@@ -1,5 +1,7 @@
 import Masonry from "react-masonry-css"
 import { useNavigate } from "react-router-dom"
+import { format } from "date-fns"
+import { formatInTimeZone } from "date-fns-tz"
 import type { BlogPost } from "../types/BlogPost"
 
 interface BlogListProps {
@@ -32,7 +34,32 @@ export function BlogList({ contents }: BlogListProps) {
                         onClick={() => navigate(`/blog/${filename}`)}
                         className="blog-card"
                     >
-                        {attributes?.title}
+                        <div className="blog-card-content">
+                            <h2 className="blog-card-title">{attributes?.title}</h2>
+                            {attributes?.tags && (
+                                <div className="blog-card-tags">
+                                    {attributes.tags.map((tag) => (
+                                        <span key={tag} className="blog-card-tag">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                            {(attributes?.createdAt || attributes?.updatedAt) && (
+                                <div className="blog-card-dates">
+                                    {attributes.createdAt && (
+                                        <time dateTime={attributes.createdAt} className="blog-card-date">
+                                            作成: {formatInTimeZone(new Date(attributes.createdAt), "Asia/Tokyo", "yyyy/MM/dd")}
+                                        </time>
+                                    )}
+                                    {attributes.updatedAt && attributes.updatedAt !== attributes.createdAt && (
+                                        <time dateTime={attributes.updatedAt} className="blog-card-date">
+                                            更新: {formatInTimeZone(new Date(attributes.updatedAt), "Asia/Tokyo", "yyyy/MM/dd")}
+                                        </time>
+                                    )}
+                                </div>
+                            )}
+                        </div>
                     </button>
                 )
             })}
