@@ -63,7 +63,7 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
                     </div>
                 </div>
             </header>
-            <div className="prose prose-lg max-w-none">
+            <div className="markdown mt-8">
                 <PostContent />
             </div>
         </article>
