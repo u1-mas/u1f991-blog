@@ -4,26 +4,25 @@ import { loadContent } from "./loadContent"
 import type { BlogPost } from "./types/BlogPost"
 
 function App() {
-    const [contents, setContents] = useState<Record<string, BlogPost> | null>(
-        null,
+    const [contents, setContents] = useState<Record<string, BlogPost>>(
+        loadContent(),
     )
-    const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        const rawContents = loadContent()
-        setContents(rawContents)
-        setLoading(false)
-    }, [])
 
-    return loading ? (
-        <div>Loading...</div>
-    ) : (
-        <div>
-            loaded!
-            {contents &&
-                Object.entries(contents).map(([key, { attributes }]) => {
-                    // console.log(key, value)
-                    return <div key={key}>{attributes?.title}</div>
-                })}
+    return (
+        <div className="button-container">
+            {Object.entries(contents).map(([key, { attributes }]) => {
+                console.log(key, attributes)
+                const filename = key.split("/").pop()?.split(".")[0]
+                return (
+                    <button
+                        key={filename}
+                        type="button"
+                        id={`blog-${filename}`}
+                    >
+                        {attributes?.title}
+                    </button>
+                )
+            })}
         </div>
     )
 }
