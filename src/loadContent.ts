@@ -14,9 +14,9 @@ export function loadContent(): Record<string, BlogPost> {
 
     for (const [path, content] of Object.entries(contents)) {
         const relativePath = path.replace("./", "")
-        const dates = gitDates[relativePath] || { 
-            createdAt: new Date().toISOString(), 
-            updatedAt: new Date().toISOString() 
+        const dates = gitDates[relativePath] || {
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
         }
 
         if (content.attributes) {

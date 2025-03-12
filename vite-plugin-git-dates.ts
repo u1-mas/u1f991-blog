@@ -1,5 +1,5 @@
-import type { Plugin } from "vite"
 import { execSync } from "node:child_process"
+import type { Plugin } from "vite"
 
 interface GitDates {
     createdAt: string
@@ -13,19 +13,22 @@ export function gitDatesPlugin(): Plugin {
         name: "vite-plugin-git-dates",
         configureServer() {
             // ビルド時にGitの日時情報を取得
-            const files = execSync("git ls-files src/contents").toString().trim().split("\n")
+            const files = execSync("git ls-files src/contents")
+                .toString()
+                .trim()
+                .split("\n")
             for (const file of files) {
                 try {
                     const createdAt = execSync(
                         `git log --format=%aI --reverse ${file} | head -1`,
-                        { encoding: "utf-8" }
+                        { encoding: "utf-8" },
                     ).trim()
-                    
+
                     const updatedAt = execSync(
                         `git log -1 --format=%aI ${file}`,
-                        { encoding: "utf-8" }
+                        { encoding: "utf-8" },
                     ).trim()
-                    
+
                     fileGitDates.set(file, { createdAt, updatedAt })
                 } catch (error) {
                     console.error(`Failed to get git dates for ${file}:`, error)
@@ -39,9 +42,9 @@ export function gitDatesPlugin(): Plugin {
                 const dates = Object.fromEntries([...fileGitDates.entries()])
                 return code.replace(
                     "export function loadContent()",
-                    `const gitDates = ${JSON.stringify(dates, null, 2)};\n\nexport function loadContent()`
+                    `const gitDates = ${JSON.stringify(dates, null, 2)};\n\nexport function loadContent()`,
                 )
             }
-        }
+        },
     }
 }

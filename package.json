@@ -37,8 +37,6 @@
         "vite-plugin-markdown": "^2.2.0"
     },
     "lint-staged": {
-        "*.{js,jsx,ts,tsx}": [
-            "npm run check"
-        ]
+        "*.{js,jsx,ts,tsx}": ["npm run check"]
     }
 }
