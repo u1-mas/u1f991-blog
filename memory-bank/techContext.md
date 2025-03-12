@@ -30,6 +30,11 @@
   - モダンなUIライブラリ
   - 関数コンポーネントとHooksベースの実装
 
+- **TailwindCSS** (v4.0.13)
+  - ユーティリティファーストのCSSフレームワーク
+  - ダークモード対応
+  - カスタマイズ可能なデザインシステム
+
 - **TypeScript** (v5.7.2)
   - 静的型チェック
   - 開発時の型安全性確保
@@ -97,7 +102,8 @@
     "@babel/core": "^7.26.9",
     "@babel/preset-react": "^7.26.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.13"
 }
 ```
 
@@ -112,7 +118,9 @@
     "lint-staged": "^15.4.3",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
-    "vite-plugin-markdown": "^2.2.0"
+    "vite-plugin-markdown": "^2.2.0",
+    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.18"
 }
 ```
 
@@ -124,8 +132,3 @@
 3. 静的ファイルの生成
 
 ### デプロイ先
-- GitHub Pages
-- 静的サイトホスティング
-
-### 自動化
-- GitHub Actionsによるビルドとデプロイの自動化（予定）

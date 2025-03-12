@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { AppRoutes } from "./routes"
-import "./App.css"
 import { loadContent } from "./loadContent"
 import type { BlogPost } from "./types/BlogPost"
 
