@@ -29,7 +29,7 @@ export function BlogList({ contents }: BlogListProps) {
                         key={filename}
                         type="button"
                         id={`blog-${filename}`}
-                        onClick={() => navigate(`/posts/${filename}`)}
+                        onClick={() => navigate(`/blog/${filename}`)}
                         className="blog-card"
                     >
                         {attributes?.title}

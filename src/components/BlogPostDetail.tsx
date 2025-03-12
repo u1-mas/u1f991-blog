@@ -8,7 +8,7 @@ interface BlogPostDetailProps {
 export function BlogPostDetail({ contents }: BlogPostDetailProps) {
     const { id } = useParams()
     const post = Object.entries(contents).find(
-        ([key]) => key.split("/").pop()?.split(".")[0] === id,
+        ([key]) => key === `./contents/${id}.md`
     )?.[1]
 
     if (!post) {
