@@ -14,11 +14,11 @@
 }
 
 .masonry-grid {
-    @apply flex gap-4 w-auto;
+    @apply flex gap-6 w-auto;
 }
 
 .masonry-grid_column {
-    @apply gap-4;
+    @apply gap-6;
 }
 
 .blog-card-content {
