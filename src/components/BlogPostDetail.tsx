@@ -55,7 +55,7 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
                                 作成日: {createdAt}
                             </time>
                         )}
-                        {updatedAt && updatedAt !== createdAt && (
+                        {updatedAt && (
                             <time className="blog-card-date">
                                 更新日: {updatedAt}
                             </time>
