@@ -19,9 +19,6 @@ PLAN MODEの場合は、ファイルへの書き込みや環境を破壊する�
 ## 作業時の注意
 
 - 複数のコマンドを ; や && でつなげて同時に実行しようとしないこと。
-- clineがコミットするとき、ユーザーとは別の存在であることが分かるようなgitの設定を一時的に使うこと。
-  - 例: `git config --local user.name "Zundamon (from Cline)" && git config --local user.email "zundamon@example.com"`
-  - タスクが完了したら元のユーザーの設定に戻すこと。
 - `gh run list`のような外部サービスを参照しているとき、連続した実行はせず10秒ほど空けて再実行してください。
 
 ## プロジェクト
