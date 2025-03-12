@@ -5,8 +5,16 @@
 ```mermaid
 graph TD
     MD[Markdownファイル] -->|Viteプラグイン| BP[BlogPost]
-    BP -->|レンダリング| App[Appコンポーネント]
-    App -->|表示| UI[ユーザーインターフェース]
+    BP -->|コンテンツ提供| Router[React Router]
+    Router -->|ルーティング| Layout[Layoutコンポーネント]
+    Layout -->|レンダリング| Components[UIコンポーネント]
+    Components -->|表示| UI[ユーザーインターフェース]
+
+    subgraph UIコンポーネント
+        BlogList[BlogList]
+        BlogPostDetail[BlogPostDetail]
+        Home[Home]
+    end
 ```
 
 ## コアコンポーネント
@@ -36,12 +44,21 @@ graph TD
   }
   ```
 
-### 4. メインアプリケーション
-- **場所**: `src/App.tsx`
+### 4. UIコンポーネント
+- **場所**: `src/components/`
+- **主要コンポーネント**:
+  - `Layout.tsx`: アプリケーションの基本レイアウト
+  - `BlogList.tsx`: ブログ記事一覧（Masonryレイアウト）
+  - `BlogPostDetail.tsx`: 個別記事の表示
+  - `Home.tsx`: ホームページ
+  - `Navigation.tsx`: ナビゲーションメニュー
+
+### 5. ルーティング
+- **場所**: `src/routes/index.tsx`
 - **責務**:
-  - コンテンツの読み込み
-  - 記事一覧の表示
-  - ユーザーインタラクションの処理
+  - URLベースのナビゲーション
+  - コンポーネントの条件付きレンダリング
+  - パラメータによる記事の特定
 
 ## データフロー
 
@@ -49,12 +66,18 @@ graph TD
 sequenceDiagram
     participant MD as Markdownファイル
     participant Loader as loadContent
-    participant App as Appコンポーネント
+    participant Router as React Router
+    participant Layout as Layoutコンポーネント
+    participant Components as UIコンポーネント
     participant UI as ユーザーインターフェース
 
     MD->>Loader: import.meta.glob
-    Loader->>App: BlogPost オブジェクト
-    App->>UI: レンダリング
+    Loader->>Router: BlogPost オブジェクト
+    Router->>Layout: ルーティング
+    Layout->>Components: コンテンツ表示
+    Components->>UI: レンダリング
+
+    Note over Components,UI: Masonryレイアウトで記事を表示
 ```
 
 ## 採用している設計パターン
@@ -73,18 +96,22 @@ sequenceDiagram
 
 ## 拡張ポイント
 
-1. ルーティング
-   - 記事の個別ページ表示
+1. コンテンツ機能
    - カテゴリー/タグページの追加
+   - 記事の検索機能実装
+   - 記事のメタ情報の拡充
 
 2. 状態管理
    - より複雑な状態管理が必要な場合の対応
    - キャッシュ戦略の実装
+   - ダークモード設定の永続化
 
-3. コンポーネント構造
-   - UIコンポーネントの分割
-   - 共通コンポーネントの抽出
+3. UIの改善
+   - アニメーションの追加
+   - レスポンシブデザインの最適化
+   - アクセシビリティの向上
 
-4. ビルドプロセス
-   - 最適化の追加
+4. ビルドとデプロイ
+   - ビルド最適化の追加
    - デプロイプロセスの自動化
+   - パフォーマンスモニタリングの導入

@@ -30,6 +30,11 @@
   - モダンなUIライブラリ
   - 関数コンポーネントとHooksベースの実装
 
+- **React Router** (v7.3.0)
+  - クライアントサイドルーティング
+  - URLベースのナビゲーション
+  - パラメータ管理
+
 - **TailwindCSS** (v4.0.13)
   - ユーティリティファーストのCSSフレームワーク
   - ダークモード対応
@@ -43,6 +48,12 @@
   - 高速な開発サーバー
   - 効率的なビルドプロセス
   - プラグインによる拡張性
+
+### レイアウト
+- **react-masonry-css** (v1.0.16)
+  - レスポンシブなグリッドレイアウト
+  - ブログ記事一覧の最適な表示
+  - カスタマイズ可能なブレイクポイント
 
 ### Markdownサポート
 - **vite-plugin-markdown** (v2.2.0)
@@ -76,9 +87,10 @@
 | コマンド | 説明 |
 |----------|------|
 | `npm run dev` | 開発サーバーの起動 |
-| `npm run build` | プロダクションビルドの生成 |
-| `npm run check` | 型チェックとコードフォーマット |
+| `npm run build` | TypeScriptビルドとプロダクションビルドの生成 |
+| `npm run check` | Biomeによるチェックと型チェック |
 | `npm run preview` | ビルド結果のプレビュー |
+| `npm run prepare` | Huskyのインストール |
 
 ## 技術的制約
 
@@ -103,7 +115,8 @@
     "@babel/preset-react": "^7.26.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.0.13"
+    "react-masonry-css": "^1.0.16",
+    "react-router-dom": "^7.3.0"
 }
 ```
 
@@ -111,16 +124,18 @@
 ```json
 {
     "@biomejs/biome": "^1.9.4",
+    "@tailwindcss/vite": "^4.0.13",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react-swc": "^3.8.0",
+    "autoprefixer": "^10.4.21",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.13",
     "typescript": "~5.7.2",
     "vite": "^6.2.0",
-    "vite-plugin-markdown": "^2.2.0",
-    "postcss": "^8.4.35",
-    "autoprefixer": "^10.4.18"
+    "vite-plugin-markdown": "^2.2.0"
 }
 ```
 
@@ -132,3 +147,4 @@
 3. 静的ファイルの生成
 
 ### デプロイ先
+GitHub Pages
