@@ -35,10 +35,11 @@ export function getBlogNavigation(
     const prev =
         currentIndex < sortedPosts.length - 1
             ? {
-                  id: sortedPosts[currentIndex + 1].path
-                      .split("/")
-                      .pop()
-                      ?.split(".")[0] || "",
+                  id:
+                      sortedPosts[currentIndex + 1].path
+                          .split("/")
+                          .pop()
+                          ?.split(".")[0] || "",
                   title:
                       contents[sortedPosts[currentIndex + 1].path].attributes
                           ?.title || "無題",
@@ -48,10 +49,11 @@ export function getBlogNavigation(
     const next =
         currentIndex > 0
             ? {
-                  id: sortedPosts[currentIndex - 1].path
-                      .split("/")
-                      .pop()
-                      ?.split(".")[0] || "",
+                  id:
+                      sortedPosts[currentIndex - 1].path
+                          .split("/")
+                          .pop()
+                          ?.split(".")[0] || "",
                   title:
                       contents[sortedPosts[currentIndex - 1].path].attributes
                           ?.title || "無題",
