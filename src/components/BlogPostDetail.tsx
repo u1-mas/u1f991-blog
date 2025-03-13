@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import type { BlogPost } from "../types/BlogPost"
 import { getBlogNavigation } from "../utils/blogNavigation"
 import { BlogPostNavigation } from "./BlogPostNavigation"
+import { NotFound } from "./NotFound"
 
 interface BlogPostDetailProps {
     contents: Record<string, BlogPost>
@@ -23,14 +24,7 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
     )?.[1]
 
     if (!post) {
-        return (
-            <div className="flex flex-col items-center justify-center min-h-[50vh] text-gray-600">
-                <h2 className="text-2xl font-bold mb-4">
-                    記事が見つかりませんでした
-                </h2>
-                <p>お探しの記事は存在しないか、削除された可能性があります。</p>
-            </div>
-        )
+        return <NotFound />
     }
 
     const PostContent = post.ReactComponent
