@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom"
 import type { BlogPost } from "../types/BlogPost"
+import { getBlogNavigation } from "../utils/blogNavigation"
+import { BlogPostNavigation } from "./BlogPostNavigation"
 
 interface BlogPostDetailProps {
     contents: Record<string, BlogPost>
@@ -71,6 +73,9 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
                 <div className="article-content markdown">
                     <PostContent />
                 </div>
+                <BlogPostNavigation
+                    navigation={getBlogNavigation(contents, `./contents/${id}.md`)}
+                />
             </article>
         </div>
     )
