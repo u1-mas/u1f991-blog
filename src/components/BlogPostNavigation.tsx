@@ -6,7 +6,9 @@ interface BlogPostNavigationProps {
     navigation: BlogNavigation
 }
 
-export const BlogPostNavigation: FC<BlogPostNavigationProps> = ({ navigation }) => {
+export const BlogPostNavigation: FC<BlogPostNavigationProps> = ({
+    navigation,
+}) => {
     if (!navigation.prev && !navigation.next) return null
 
     return (
@@ -15,12 +17,14 @@ export const BlogPostNavigation: FC<BlogPostNavigationProps> = ({ navigation }) 
                 {navigation.prev && (
                     <Link
                         to={`/blog/${navigation.prev.id}`}
-                        className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                        className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                         <span>←</span>
                         <div className="flex flex-col">
                             <span className="text-sm">前の記事</span>
-                            <span className="text-lg font-medium">{navigation.prev.title}</span>
+                            <span className="text-lg font-medium">
+                                {navigation.prev.title}
+                            </span>
                         </div>
                     </Link>
                 )}
@@ -29,11 +33,13 @@ export const BlogPostNavigation: FC<BlogPostNavigationProps> = ({ navigation }) 
                 {navigation.next && (
                     <Link
                         to={`/blog/${navigation.next.id}`}
-                        className="flex items-center gap-2 text-right text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                        className="flex items-center gap-2 text-right text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                         <div className="flex flex-col">
                             <span className="text-sm">次の記事</span>
-                            <span className="text-lg font-medium">{navigation.next.title}</span>
+                            <span className="text-lg font-medium">
+                                {navigation.next.title}
+                            </span>
                         </div>
                         <span>→</span>
                     </Link>
