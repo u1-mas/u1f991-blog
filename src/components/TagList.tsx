@@ -7,13 +7,17 @@ interface TagListProps {
     className?: string
 }
 
-export const TagList: FC<TagListProps> = ({ tags, activeTag, className = "" }) => {
+export const TagList: FC<TagListProps> = ({
+    tags,
+    activeTag,
+    className = "",
+}) => {
     const uniqueTags = Array.from(new Set(tags)).sort()
 
     return (
         <div className={`flex flex-wrap gap-2 ${className}`}>
             <Link
-                to="/"
+                to="/blog"
                 className={`px-3 py-1 rounded-full text-sm ${
                     !activeTag
                         ? "bg-blue-500 text-white"
@@ -25,7 +29,7 @@ export const TagList: FC<TagListProps> = ({ tags, activeTag, className = "" }) =
             {uniqueTags.map((tag) => (
                 <Link
                     key={tag}
-                    to={`/?tag=${encodeURIComponent(tag)}`}
+                    to={`/blog?tag=${encodeURIComponent(tag)}`}
                     className={`px-3 py-1 rounded-full text-sm ${
                         activeTag === tag
                             ? "bg-blue-500 text-white"
