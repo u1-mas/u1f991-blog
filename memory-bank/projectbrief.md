@@ -25,7 +25,7 @@
 
 ## 成果物の定義
 - GitHub Pages上で動作する静的Webサイト
-- ソースコードレポジトリ: https://github.com/u1-mas/u1f991-blog
+- ソースコードレポジトリ: https://github.com/u1-mas/u1f991
 
 ## 制約事項
 - 既存の静的サイトジェネレータを使用しない

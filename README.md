@@ -1,4 +1,4 @@
-# u1f991-blog
+# u1f991
 
 このプロジェクトは、Vite + React + TypeScriptで構築された個人ブログです。
 GitHub Pagesで公開することを想定しています。
@@ -37,8 +37,8 @@ GitHub Pagesで公開することを想定しています。
 
 ```bash
 # リポジトリのクローン
-git clone https://github.com/u1-mas/u1f991-blog.git
-cd u1f991-blog
+git clone https://github.com/u1-mas/u1f991.git
+cd u1f991
 
 # 依存関係のインストール
 npm install
@@ -64,7 +64,7 @@ npm run dev
 
 このプロジェクトはGitHub Pagesでホストされています。
 
-公開URL: https://u1-mas.github.io/u1f991-blog
+公開URL: https://u1-mas.github.io/u1f991
 
 ## 今後の計画
 

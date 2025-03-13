@@ -9,8 +9,8 @@
 ### セットアップ手順
 1. リポジトリのクローン
    ```bash
-   git clone https://github.com/u1-mas/u1f991-blog.git
-   cd u1f991-blog
+   git clone https://github.com/u1-mas/u1f991.git
+   cd u1f991
    ```
 
 2. 依存関係のインストール
@@ -89,13 +89,13 @@
 
 ## スクリプト
 
-| コマンド | 説明 |
-|----------|------|
-| `npm run dev` | 開発サーバーの起動 |
-| `npm run build` | TypeScriptビルドとプロダクションビルドの生成 |
-| `npm run check` | Biomeによるチェックと型チェック |
-| `npm run preview` | ビルド結果のプレビュー |
-| `npm run prepare` | Huskyのインストール |
+| コマンド          | 説明                                         |
+| ----------------- | -------------------------------------------- |
+| `npm run dev`     | 開発サーバーの起動                           |
+| `npm run build`   | TypeScriptビルドとプロダクションビルドの生成 |
+| `npm run check`   | Biomeによるチェックと型チェック              |
+| `npm run preview` | ビルド結果のプレビュー                       |
+| `npm run prepare` | Huskyのインストール                          |
 
 ## 技術的制約
 
