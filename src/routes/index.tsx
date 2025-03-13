@@ -3,6 +3,7 @@ import { BlogList } from "../components/BlogList"
 import { BlogPostDetail } from "../components/BlogPostDetail"
 import { Home } from "../components/Home"
 import { Layout } from "../components/Layout"
+import { NotFound } from "../components/NotFound"
 import type { BlogPost } from "../types/BlogPost"
 
 interface RouteConfig {
@@ -28,6 +29,10 @@ export const routes: RouteConfig[] = [
                 path: "blog/:id",
                 element: <BlogPostDetail contents={{}} />, // 実際の使用時にcontentsを渡すのだ
             },
+            {
+                path: "*",
+                element: <NotFound />,
+            },
         ],
     },
 ]
@@ -46,6 +51,7 @@ export function AppRoutes({ contents }: RoutesProps) {
                     path="blog/:id"
                     element={<BlogPostDetail contents={contents} />}
                 />
+                <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
     )
