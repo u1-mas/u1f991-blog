@@ -54,7 +54,7 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
                                 <Link
                                     key={tag}
                                     to={`/blog?tag=${encodeURIComponent(tag)}`}
-                                    className="blog-card-tag hover:bg-blue-500 hover:text-white transition-colors"
+                                    className="blog-card-tag hover:bg-blue-500 hover:text-white cursor-pointer underline-offset-2 hover:underline transition-colors"
                                 >
                                     {tag}
                                 </Link>

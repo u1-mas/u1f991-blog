@@ -60,8 +60,10 @@ export function BlogList({ contents }: BlogListProps) {
                                             <Link
                                                 key={tag}
                                                 to={`/blog?tag=${encodeURIComponent(tag)}`}
-                                                className="blog-card-tag hover:bg-blue-500 hover:text-white transition-colors"
-                                                onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                                                className="blog-card-tag hover:bg-blue-500 hover:text-white cursor-pointer underline-offset-2 hover:underline transition-colors"
+                                                onClick={(
+                                                    e: React.MouseEvent,
+                                                ) => e.stopPropagation()}
                                             >
                                                 {tag}
                                             </Link>
