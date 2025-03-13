@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import type { BlogPost } from "../types/BlogPost"
 import { getBlogNavigation } from "../utils/blogNavigation"
 import { BlogPostNavigation } from "./BlogPostNavigation"
@@ -51,9 +51,13 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
                     <div className="article-meta">
                         <div className="blog-card-tags">
                             {attributes?.tags?.map((tag) => (
-                                <span key={tag} className="blog-card-tag">
+                                <Link
+                                    key={tag}
+                                    to={`/blog?tag=${encodeURIComponent(tag)}`}
+                                    className="blog-card-tag hover:bg-blue-500 hover:text-white transition-colors"
+                                >
                                     {tag}
-                                </span>
+                                </Link>
                             ))}
                         </div>
                         <div className="article-dates">
@@ -74,7 +78,10 @@ export function BlogPostDetail({ contents }: BlogPostDetailProps) {
                     <PostContent />
                 </div>
                 <BlogPostNavigation
-                    navigation={getBlogNavigation(contents, `./contents/${id}.md`)}
+                    navigation={getBlogNavigation(
+                        contents,
+                        `./contents/${id}.md`,
+                    )}
                 />
             </article>
         </div>

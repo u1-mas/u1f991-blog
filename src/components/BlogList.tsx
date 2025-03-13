@@ -1,6 +1,6 @@
 import { formatInTimeZone } from "date-fns-tz"
 import Masonry from "react-masonry-css"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import type { BlogPost } from "../types/BlogPost"
 import { TagList } from "./TagList"
 
@@ -22,8 +22,7 @@ export function BlogList({ contents }: BlogListProps) {
     )
 
     const filteredContents = Object.entries(contents).filter(
-        ([, post]) =>
-            !activeTag || post.attributes?.tags?.includes(activeTag),
+        ([, post]) => !activeTag || post.attributes?.tags?.includes(activeTag),
     )
 
     return (
@@ -58,12 +57,14 @@ export function BlogList({ contents }: BlogListProps) {
                                 {attributes?.tags && (
                                     <div className="blog-card-tags">
                                         {attributes.tags.map((tag) => (
-                                            <span
+                                            <Link
                                                 key={tag}
-                                                className="blog-card-tag"
+                                                to={`/blog?tag=${encodeURIComponent(tag)}`}
+                                                className="blog-card-tag hover:bg-blue-500 hover:text-white transition-colors"
+                                                onClick={(e: React.MouseEvent) => e.stopPropagation()}
                                             >
                                                 {tag}
-                                            </span>
+                                            </Link>
                                         ))}
                                     </div>
                                 )}
