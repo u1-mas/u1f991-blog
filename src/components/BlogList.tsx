@@ -1,7 +1,8 @@
 import { formatInTimeZone } from "date-fns-tz"
 import Masonry from "react-masonry-css"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import type { BlogPost } from "../types/BlogPost"
+import { TagList } from "./TagList"
 
 interface BlogListProps {
     contents: Record<string, BlogPost>
@@ -9,9 +10,25 @@ interface BlogListProps {
 
 export function BlogList({ contents }: BlogListProps) {
     const navigate = useNavigate()
+    const [searchParams] = useSearchParams()
+    const activeTag = searchParams.get("tag") || undefined
+
+    const allTags = Array.from(
+        new Set(
+            Object.values(contents)
+                .flatMap((post) => post.attributes?.tags || [])
+                .filter(Boolean),
+        ),
+    )
+
+    const filteredContents = Object.entries(contents).filter(
+        ([, post]) =>
+            !activeTag || post.attributes?.tags?.includes(activeTag),
+    )
 
     return (
-        <div>
+        <div className="space-y-8">
+            <TagList tags={allTags} activeTag={activeTag} />
             <Masonry
                 breakpointCols={{
                     default: 6,
@@ -24,7 +41,7 @@ export function BlogList({ contents }: BlogListProps) {
                 className="masonry-grid"
                 columnClassName="masonry-grid_column"
             >
-                {Object.entries(contents).map(([key, { attributes }]) => {
+                {filteredContents.map(([key, { attributes }]) => {
                     const filename = key.split("/").pop()?.split(".")[0]
                     return (
                         <button
