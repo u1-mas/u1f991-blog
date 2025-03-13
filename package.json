@@ -5,8 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc -b && vite build",
-        "check": "tsc -b && biome check --write .",
+        "build": "vite build",
+        "check": "tsc -b --noEmit && biome check --write .",
         "preview": "vite preview",
         "prepare": "husky"
     },
