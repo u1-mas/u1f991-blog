@@ -14,7 +14,7 @@ export const Footer: FC = () => {
                         GitHub
                     </a>
                     <a
-                        href="https://twitter.com/u1f991"
+                        href="https://twitter.com/u1_mas"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"

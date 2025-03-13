@@ -10,7 +10,7 @@ if (!rootElement) {
 }
 createRoot(rootElement).render(
     <StrictMode>
-        <BrowserRouter basename="/u1f991-blog">
+        <BrowserRouter basename="/u1f991">
             <App />
         </BrowserRouter>
     </StrictMode>,

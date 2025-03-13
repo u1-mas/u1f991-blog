@@ -14,5 +14,5 @@ export default defineConfig({
         }),
         gitDatesPlugin(),
     ],
-    base: "/u1f991-blog/",
+    base: "/u1f991/",
 })
